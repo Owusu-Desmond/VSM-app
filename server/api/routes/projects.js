@@ -4,7 +4,7 @@ module.exports = (router) => {
   // GET: list of active projects
   router.get('/projects', async (req, res) => {
     try {
-      const projects = await Project.find({ active: true }).sort({ name: 1 }).exec()
+      const projects = await Project.find({ isActive: true }).sort({ name: 1 }).exec()
       return res.status(200).json(projects)
     } catch (err) {
       return res.status(500).json({
@@ -15,7 +15,7 @@ module.exports = (router) => {
   })
 
   // POST: create new project
-  router.post('/projects', async (res, req) => {
+  router.post('/projects', async (req, res) => {
     try {
       const project = new Project(req.body)
       await project.save()

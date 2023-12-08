@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Sample Standup Notes",
+        "description": "A sample project for standup meeting notes",
+        "isActive": true
+    },
+    {
+        "name": "Sample Project 2",
+        "description": "A sample project 2",
+        "isActive": true
+    },
+    {
+        "name": "Sample Project 3",
+        "description": "A sample project 3",
+        "isActive": true
+    },
+    {
+        "name": "Sample Project 4",
+        "description": "A sample project 4",
+        "isActive": false
+    }
+  ]

@@ -1,0 +1,26 @@
+[
+    {
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "password": "123456",
+    "role": "Developer"
+    },
+    {
+    "name": "Frank Smith",
+    "email": "franksmith@gmail.com",
+    "password": "123456",
+    "role": "Front-end Developer"
+    },
+    {
+    "name": "Jane Green",
+    "email": "janegreen@gmail.com",
+    "password": "123456",
+    "role": "Back-end Developer"
+    },
+    {
+    "name": "Drew Wills",
+    "email": "drewwills@gmail.com",
+    "password": "123456",
+    "role": "Full-stack Developer"
+    }
+]
