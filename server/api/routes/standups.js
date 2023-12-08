@@ -5,7 +5,7 @@ module.exports = (router) => {
   // GET: 12 latest standup meetings notes
   router.get('/standups', async (req, res) => {
     try {
-      const notes = await Standup.find().sort({ createdOn: 1 }).limit(12).exec()
+      const notes = await Standup.find().sort({ createdOn: 1 });
       return res.status(200).json(notes)
     } catch (err) {
       return res.status(500).json({
