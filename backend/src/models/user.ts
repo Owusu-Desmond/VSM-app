@@ -5,10 +5,19 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     ManyToOne,
-  } from 'typeorm';
-  import Team from './team';
+    ManyToMany,
+    JoinTable,
+    OneToMany,
+} from 'typeorm';
+import Team from './team';
+import Organization from './organization';
+import StandupNote from './standup';
   
-  export type UserRole = 'admin' | 'member';
+  export enum UserRole {
+    OWNER = 'owner',
+    MANAGER = 'manager',
+    MEMBER = 'member',
+  }
 
   @Entity()
   export default class User {
@@ -27,8 +36,15 @@ import {
     @Column({ type: 'enum', enum: ['member', 'admin'], default: 'member' })
     role!: UserRole
   
-    @ManyToOne(() => Team, team => team.members, { nullable: true })
-    team!: Team;
+    @ManyToMany(() => Team, team => team.members, { nullable: true })
+    @JoinTable()
+    teams!: Team;
+
+    @ManyToOne(() => Organization, org => org.users, { onDelete: 'CASCADE'})
+    org!: Organization;
+
+    @OneToMany(() => StandupNote, note => note.user)
+    notes!: StandupNote[];
   
     @CreateDateColumn()
     createdAt!: Date;
